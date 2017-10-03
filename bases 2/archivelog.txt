@@ -1,0 +1,8 @@
+SQL> connect sys/manager as sysdba
+SQL> shutdown
+SQL> startup nomount
+SQL> alter database mount;
+SQL> alter database archivelog;
+SQL> alter database open;
+SQL> alter system checkpoint;
+SQL> archive log list;

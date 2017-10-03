@@ -1,0 +1,9 @@
+en ambos casos corregir la ruta del init y si se necesita del cosntructor sql
+
+si no esta creada 
+constructor.sql
+
+si esta creada 
+montar.sql
+
+en ambos casos tienda .qsl

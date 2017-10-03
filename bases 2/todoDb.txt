@@ -1,0 +1,66 @@
+create database "Cypress"
+logfile group 1 ('C:\Cypress\Bitacoras\Bitacora_1\redo1.log') size 100M,
+ group 2 ('C:\Cypress\Bitacoras\Bitacora_2\redo2.log') size 100M,
+ group 3 ('C:\Cypress\Bitacoras\Bitacora_3\redo3.log') size 100M
+character set WE8ISO8859P1
+national character set utf8
+datafile 'C:\Cypress\Tablespaces\sistema\system.dbf' size 500M autoextend on next 10M maxsize
+unlimited extent management local
+sysaux datafile 'C:\Cypress\Tablespaces\sysaux\sysaux.dbf' size 100M autoextend on next 10M
+maxsize unlimited
+undo tablespace undotbs1 datafile 'C:\Cypress\Tablespaces\undo\undotbs1.dbf' size 100M
+default temporary tablespace temp tempfile 'C:\Cypress\Tablespaces\temporal\temp.dbf' size
+100M;
+//Paso2
+CREATE TABLESPACE "user" DATAFILE 'C:\Cypress\tablespaces\user\user.dbf ' SIZE 2M AUTOEXTEND ON NEXT 1M MAXSIZE 1G;
+CREATE TABLESPACE "index" DATAFILE 'C:\Cypress\tablespaces\index\index.dbf ' SIZE 2M
+AUTOEXTEND ON NEXT 1M MAXSIZE 1G;
+CREATE TABLESPACE "area_1" DATAFILE 'C:\Cypress\tablespaces\area_1\area_1.dbf ' SIZE 2M
+AUTOEXTEND ON NEXT 1M MAXSIZE 1G;
+ALTER DATABASE DATAFILE 'C:\Cypress\tablespaces\user\user.dbf' resize 200M;
+//Paso3
+ALTER DATABASE ADD LOGFILE ('C:\Cypress\Bitacoras\Bitacora_1\log1c.rdo', 'C:\Cypress\Bitacoras\Bitacora_1\log2c.rdo') SIZE 4500K;
+ALTER DATABASE ADD LOGFILE ('C:\Cypress\Bitacoras\Bitacora_2\log1c.rdo', 'C:\Cypress\Bitacoras\Bitacora_2\log2c.rdo') SIZE 4500K;
+ALTER DATABASE ADD LOGFILE ('C:\Cypress\Bitacoras\Bitacora_3\log1c.rdo', 'C:\Cypress\Bitacoras\Bitacora_3\log2c.rdo') SIZE 4500K;
+//Paso4
+create table departamentos(cod_depto number, 
+nombre varchar2(10)) tablespace "user";
+create table test(
+cod_emp      number,
+nombre       varchar2(10), 
+cod_depto1   number,
+email varchar2(10)) tablespace "user";
+alter table test add constraint test_pk
+primary key (cod_emp);
+alter table departamentos add constraint departamentos_pk
+primary key (cod_depto);
+alter table empleado add constraint empleado_fk_depto
+foreign key (cod_depto1) references departamentos(cod_depto);
+alter table empleado add constraint empleado_uk1
+unique (email);
+insert into departamentos(cod_depto, nombre) values
+(10, 'Ventas');
+insert into departamentos(cod_depto, nombre) values
+(20, 'Info');
+insert into empleado(cod_emp, nombre, cod_depto1) values
+(1, 'Juan',10);
+insert into empleado(cod_emp, nombre, cod_depto1) values
+(2, 'Pedro',20);
+insert into test(cod_emp, nombre, cod_depto1) values
+(1, 'Pedro',10);
+insert into test(cod_emp, nombre, cod_depto1) values
+(2, 'Juan',20);
+insert into test(cod_emp, nombre, cod_depto1) values
+(3, 'Carlos',10);
+select * 
+from ALL_ALL_TABLES 
+where empleado like '%emp%';
+select owner, table_name, tablespace_name
+from dba_tablespaces
+ where table_name='test';
+//paso5
+ALTER TABLE empleado MOVE TABLESPACE "area_1";
+ALTER TABLE departamentos MOVE TABLESPACE "area_1";
+ALTER INDEX cod_emp REBUILD TABLESPACE "index";
+ALTER INDEX cod_depto1 REBUILD TABLESPACE "index";
+ALTER INDEX cod_depto REBUILD TABLESPACE "index";

@@ -1,0 +1,59 @@
+**************************CREANDO LOS TABLESPACES FALTANTES
+CREATE BIGFILE TABLESPACE indice DATAFILE 'C:\BD\Tablespaces\Index\indice.DBF' SIZE 100M AUTOEXTEND ON NEXT 1M MAXSIZE 300M;
+CREATE BIGFILE TABLESPACE Users DATAFILE 'C:\BD\Tablespaces\Users\Users.DBF' SIZE 100M AUTOEXTEND ON NEXT 1M MAXSIZE 300M;
+CREATE BIGFILE TABLESPACE A1 DATAFILE 'C:\BD\Tablespaces\A1\A1.DBF' SIZE 100M AUTOEXTEND ON NEXT 1M MAXSIZE 300M;
+
+**************************CREANDO LAS TABLAS
+CREATE TABLE T1(
+k1 number(10) not null,
+constraint T1_PK primary key (k1)
+) tablespace USERS;
+
+CREATE TABLE T2(
+k2 number(10) not null,
+constraint T2_PK primary key (k2),
+constraint T2_FK_T1 foreign key (k2) references T1(k1)
+) tablespace USERS;
+
+CREATE TABLE T3(
+k3 number(10) not null,
+constraint T3_PK primary key (k3),
+constraint T3_FK_T2 foreign key (k3) references T2(k2),
+constraint T3_FK_T4 foreign key (k3) references T4(k4)
+) tablespace USERS;
+
+CREATE TABLE T4(
+k4 number(10) not null,
+constraint T4_PK primary key (k4)
+) tablespace USERS;
+
+
+select table_name from dba_tables where tablespace_name='USERS';
+
+**************************PASAR LOS PK A INDICE
+ALTER INDEX T1_PK REBUILD TABLESPACE INDICE;
+
+ALTER INDEX T2_PK REBUILD TABLESPACE INDICE;
+
+ALTER INDEX T3_PK REBUILD TABLESPACE INDICE;
+
+ALTER INDEX T4_PK REBUILD TABLESPACE INDICE;
+
+**************************PASAR LAS TABLAS
+ALTER TABLE T1 MOVE TABLESPACE USERS;
+
+ALTER TABLE T2 MOVE TABLESPACE A1;
+
+ALTER TABLE T3 MOVE TABLESPACE A1;
+
+ALTER TABLE T4 MOVE TABLESPACE USERS;
+
+**************************VIENDO QUE TABLAS ESTAN EN ESOS TABLESPACES
+SELECT TABLE_NAME, tablespace_name from dba_tables where tablespace_name='USERS';
+SELECT TABLE_NAME, tablespace_name from dba_tables where tablespace_name='A1';
+SELECT TABLE_NAME, tablespace_name from dba_tables where tablespace_name='INDICE';
+
+**************************VIENDO QUE INDICES HAY EN ESOS TABLESPACES
+SELECT INDEX_NAME,tablespace_name from dba_INDEXES where tablespace_name='USERS';
+SELECT INDEX_NAME,tablespace_name from dba_INDEXES where tablespace_name='A1';
+SELECT INDEX_NAME,tablespace_name from dba_INDEXES where tablespace_name='INDICE';

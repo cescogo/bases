@@ -1,0 +1,29 @@
+db_name='TTT'
+#Tiene limite de memoria
+memory_target=1G
+processes = 50
+#carpeta Destino del dump
+audit_file_dest='F:/Desktop/tienda/tdump'
+audit_trail ='db'
+db_block_size=4096
+db_domain=''
+#carpeta Destino de recuperacion
+db_recovery_file_dest='F:/Desktop/tienda/recovery'
+db_recovery_file_dest_size=2G
+#carpeta Destino del diagonistico
+diagnostic_dest='F:/Desktop/tienda'
+dispatchers='(PROTOCOL=TCP) (SERVICE=ORCLXDB)'
+open_cursors=300 
+remote_login_passwordfile='EXCLUSIVE'
+undo_tablespace='undotbs_01'
+UNDO_TABLESPACE=undotbs_01
+# separarlos fisicamente
+# devices
+control_files = (F:\Desktop\tienda\ora_control1.ctl, F:\Desktop\tienda\ora_control2.ctl)
+compatible ='11.2.0'
+
+
+# log_archive_start=true 
+# log_archive_dest=%Oracle_home%/database/%Oracle_sid%/Archive 
+# log_archive_format=´´%sample%T%TS%S.ARC´´ 
+#*Nota: Le llamamos activar, a el procedimiento de quitar los comentarios al código (#) y luego salvar el archivo.

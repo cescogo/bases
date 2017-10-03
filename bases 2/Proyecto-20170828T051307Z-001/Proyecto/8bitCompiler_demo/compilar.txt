@@ -1,0 +1,1 @@
+grun eightBit.compile.EightBit eightProgram cases\helloWorld.8bit -gui

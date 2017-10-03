@@ -1,0 +1,58 @@
+COPIAR LA CARPETA CYPRESS EN C
+
+CONECTARSE
+sqlplus system/root
+
+CONECTARSE 
+connect system/manager as sysdba
+
+APAGAR LA BASE
+shutdown
+
+INICIAR LA BASE POR PRIMERA VEZ
+startup nomount pfile=C:\Cypress\Parametros\initCypress.ora;
+
+EJECUTAR ESTE COMANDO
+create database "Cypress"
+logfile group 1 ('C:\Cypress\Bitacoras\Bitacora_1\redo1.log') size 100M,
+group 2 ('C:\Cypress\Bitacoras\Bitacora_2\redo2.log') size 100M,
+group 3 ('C:\Cypress\Bitacoras\Bitacora_3\redo3.log') size 100M
+character set WE8ISO8859P1
+national character set utf8
+datafile 'C:\Cypress\Tablespaces\sistema\system.dbf' size 500M autoextend on next 10M 
+maxsize
+unlimited extent management local
+sysaux datafile 'C:\Cypress\Tablespaces\sysaux\sysaux.dbf' size 100M autoextend on next 10M
+maxsize unlimited
+undo tablespace undotbs1 datafile 'C:\Cypress\Tablespaces\undo\undotbs1.dbf' size 100M
+default temporary tablespace temp tempfile 'C:\Cypress\Tablespaces\temporal\temp01.dbf' size
+100M;
+
+
+INICIAR LA BASE
+startup open pfile=C:\Cypress\Parametros\initCypress.ora;
+
+
+
+
+
+CREAR LOS OTROS 3 TABLESPACE
+CREATE TABLESPACE "user" DATAFILE 'C:\Cypress\user\user.dbf ' SIZE 2M
+AUTOEXTEND ON NEXT 1M MAXSIZE 1G;
+
+CREATE TABLESPACE "index" DATAFILE 'C:\Cypress\index\index.dbf ' SIZE 2M
+AUTOEXTEND ON NEXT 1M MAXSIZE 1G;
+
+CREATE TABLESPACE "area_1" DATAFILE 'C:\Cypress\area_1\area_1.dbf ' SIZE 2M
+AUTOEXTEND ON NEXT 1M MAXSIZE 1G;
+
+
+
+CAMBIAR LOS TAMAÑOS DE TABLESPACES A 200
+SQL> ALTER DATABASE DATAFILE 'C:\Cypress\Tablespaces\sistema\system.dbf' resize 200M;
+SQL> ALTER DATABASE DATAFILE 'C:\Cypress\Tablespaces\sysaux\sysaux.dbf' resize 200M;
+SQL> ALTER DATABASE DATAFILE 'C:\Cypress\Tablespaces\undo\undotbs1.dbf' resize 200M;
+SQL> ALTER DATABASE DATAFILE 'C:\CypressDB\Tablespaces\temporal\temp.dbf' resize 200M;
+SQL> ALTER DATABASE DATAFILE 'C:\Cypress\user\user.dbf' resize 200M;
+SQL> ALTER DATABASE DATAFILE 'C:\Cypress\index\index.dbf' resize 200M;
+SQL> ALTER DATABASE DATAFILE 'C:\Cypress\area_1\area_1.dbf' resize 200M;

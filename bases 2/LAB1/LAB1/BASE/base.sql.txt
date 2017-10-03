@@ -1,0 +1,11 @@
+Startup nomount pfile=C:\BD1\parametros\initbdl.ora
+create database BD1
+LOGFILE
+  GROUP 1 'C:\BD1\bitacoras\REDO01.LOG'  SIZE 50M BLOCKSIZE 512,
+  GROUP 2 'C:\BD1\bitacoras\REDO02.LOG'  SIZE 50M BLOCKSIZE 512
+DATAFILE'C:\BD1\system\SYSTEM.DBF' size 100m autoextend on
+sysaux datafile 'C:\BD1\sysaux\SYSAUX.DBF' size 100m autoextend on
+default temporary tablespace temp tempfile 'C:\BD1\TEMP\temp.dbf' size 100M
+undo tablespace undotbs1 datafile  'C:\BD1\UNDO\UNDOTBS1.DBF' size 100m autoextend on
+CHARACTER SET AL32UTF8
+;

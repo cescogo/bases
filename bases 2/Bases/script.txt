@@ -1,0 +1,6 @@
+connect target / 
+
+run {
+          
+	backup database;
+}

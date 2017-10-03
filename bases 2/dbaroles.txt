@@ -1,0 +1,10 @@
+Objetivo del laboratorio
+que usuario de esta empresa incumple con las politicas de seguridad
+Una politica de seguridad esta basada en al menos los siguientes elementos
+1-Conocimiento del modelo de datos de la empresa
+2-Concer las aplicaciones que tiene el sistema
+3-Organigrama estructural de la empresa, conocer la distribucion de funciones
+
+Los vendedores solo pueden hacer insert y select (t1, t2), y son solo 4 usuarios con rol vendedor  Ana, Juan, Luis 
+
+*Hacer reporte de cualquier violacion a la politica de seguridad de la empresa. 

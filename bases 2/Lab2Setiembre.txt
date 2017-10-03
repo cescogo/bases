@@ -1,0 +1,85 @@
+Lab Viernes 2 de Setiembre
+SQL> CREATE USER G5 IDENTIFIED BY G5;
+
+User created.
+
+SQL> GRANT CONNECT TO G5;
+
+Grant succeeded.
+
+SQL> GRANT DBA TO G5;
+
+Grant succeeded.
+
+SQL> CREATE PUBLIC DATABASE LINK G5
+  2  CONNECT TO G5
+  3  IDENTIFIED BY G5
+  4  USING'(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 172.17.29.25)(PORT
+  5   = 1521))
+  6  (CONNECT_DATA =(SERVER = DEDICATED)
+  7  (SERVICE_NAME = XE)
+  8  )
+  9  )';
+
+Database link created.
+
+SQL> CONNECT SYSTEM/MANAGER AS SYSDBA
+Connected.
+SQL> ALTER SYSTEM SET REMOTE_LOGIN_PASSWORDFILE=SHARED SCOPE = SPFILE;
+
+System altered.
+
+SQL> SHUTDOWN IMMEDIATE;
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+SQL> STARTUP;
+ORACLE instance started.
+
+SQL> SHOW PARAMETER REMOTE_LOGIN_PASSWORD
+
+select privilege from dba_tab_privs where grantee='ANA';
+PRIVILEGE
+----------------------------------------
+UPDATE
+SELECT
+INSERT
+DELETE
+
+Connect Usuario/Contraseña@DBLINK
+
+
+SQL> select privilege from dba_tab_privs where grantee='LUIS';
+
+PRIVILEGE
+----------------------------------------
+UPDATE
+
+SQL> select privilege from dba_tab_privs where grantee='JUAN';
+
+no rows selected
+
+SQL> select privilege from dba_tab_privs where grantee='MARIO';
+
+no rows selected
+
+describe dba_tab_privs;
+
+SQL> select TABLE_NAME from dba_tab_privs where grantee='ANA';
+
+TABLE_NAME
+------------------------------
+T1
+T1
+T1
+T1
+
+SQL> select * from dba_role_privs where granted_role='VENDEDOR';
+
+GRANTEE                        GRANTED_ROLE                   ADM DEF
+------------------------------ ------------------------------ --- ---
+JUAN                           VENDEDOR                       NO  YES
+LUIS                           VENDEDOR                       NO  YES
+ANA                            VENDEDOR                       NO  YES
+MARIO                          VENDEDOR                       NO  YES
+SYS  
