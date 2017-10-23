@@ -1,0 +1,6 @@
+COLUMN destination_name FORMAT A20
+COLUMN hostname FORMAT A20
+COLUMN ip_address FORMAT A20
+
+SELECT destination_name, hostname, port, ip_address
+FROM   all_scheduler_external_dests;
