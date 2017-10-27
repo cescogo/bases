@@ -1,0 +1,46 @@
+politica de seguridad de datos 27002 (seguridad de la informacion)
+
+Seguridad Usuarios: Actividades Software ,-> confidencialidad 
+
+"Politica de seguridad de datos"
+1> Clasificacion delos datos 
+nivel de clasfiicacion
+nc:{1,2,3,4,5}
+Modelo R.
+t1->a,b,c
+t2->x,y,z
+t3->w,m,nc
+
+
+tabla, columna nivel
+
+2>Acceso Mediante Roles de Trabajo
+uso de roles create user ana de grant select out, to ana
+software crea roles.
+create roleofpuas
+elininar el uso de privilegios granulares.
+
+create user ana identified by grant oficialpublico to ana
+
+los roles deben concordar con la clasificacion de los datos
+
+create view xyz as (select b from t1)
+los permisos granulares mediante vistas se implementan mediante vistas.
+deberia contener la llave primaria.
+
+3>debera registrarse las actividades de los usuarios desde que inicia hasta que finaliza.
+Se utiliza audit(para seguir a los usuarios)
+//habilitar el audit
+audit-trail
+se debe crear un conjunto de regulaciones booleanas
+
+
+4>debera implementarse un metodo de acceso a las transacciones de los usuarios
+ifnrome de violaciones  ala confidencialidad
+ctrl preventivo , evidencias a las violanciones de plotica
+
+
+show parameter audit
+alter system set audit_trail=os scope=spfile
+shutdown
+startup

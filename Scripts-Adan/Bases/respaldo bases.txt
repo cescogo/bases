@@ -1,0 +1,46 @@
+respaldo y retencion
+
+
+-> Establecer politicas de respaldo
+--> Estrategias de respaldo , los pasos a seguir puede ser manuales o automaticas
+archive o no archive
+estado online (En Caliente)
+	   offline (en Frio)
+	 total (full backup)  {tablespace[log online]}[archives]..controlfile}
+	 parcial (partial ) {tablespace,
+	 compeltos tablespace+transacciones pendientes  incompletos,
+	 incremental {t.Complet + T.incremental}
+	 exportacion e importacion  buscar informacion sobre como funciona , ver la reduccion de llaves de tama;o.
+
+	 rman -> es provisto por oracle
+	 
+	 
+	 --- 
+	 
+	 se puede realizar reindex y rebalanceo no es necesaro respaldar indices
+	 
+	 catalogo
+archive|bd|tablespace|prioridad
+
+
+
+
+estrategias	
+
+BD|Estrategia|Activa|First|Horario|Repite|Ultimavez
+
+
+revision de desfase de tiempo entre tarea y viewer
+
+
+reporte de fallos
+
+rman usuario tablas con acceso
+cada db de rman necesita un catalogo
+Robot -> conversa con rman
+
+
+--full backup database
+rman backup database;
+--partial
+backup tablespace

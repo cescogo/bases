@@ -1,0 +1,71 @@
+Seguridad de la transacion(2)
+
+ciclo de la transaccion (periodo)
+
+suficientes para mantener el ciclo.
+
+IIA....C
+Control Preventivo
+**Numero de LOG
+**Sistema De Respaldo de Bitacoras (Este Puede ser Manual o automatizado.)
+Afinamiento memoria/disco/switch
+reduccion de cargas.
+avg switch time.
+
+
+Codificacion
+Pruebas 
+retencion
+tiempo
+control fisico (termostato regulacion etc)
+controles ambientales
+pisos falsos ups, sistemas de supresion de fuego.
+
+bitacoras de trabajo.
+
+modo seguro de transaccion
+current esta siendo en uso.
+activo  es quien acaba de dejar de recibir
+inactivo ya fue respaldado a disco
+
+
+MODO archive
+
+archive log list;
+
+definir de donde se va trabajar
+
+USE_DB_RECOVERY_FILE_DEST = directorio donde se guarda el archivo log.
+1- se debe definir donde se va almacenar.
+/ los logs deben estar separados de los datos, es conveniente la existencia de espejos reflejados en otras unidades.
+1.1- Limpieza al disco.
+// HSDD00001.arc
+log fle format
+existen tres niveles mount no mount y open
+
+formato de creacion de la carpeta averiguar parametro
+
+http://www.slinfo.una.ac.cr/manualsite/mantenimiento/plantillaPRC02_INS08.html
+
+como realizar archive
+
+sqlplus connect sysdba/root as sysdba
+shutdown; 
+#modificar Parametro de init.ora
+# log_archive_start=true 
+# log_archive_dest=%Oracle_home%/database/%Oracle_sid%/Archive 
+# log_archive_format=´´%sample%T%TS%S.ARC´´ 
+#Nota: Le llamamos activar, a el procedimiento de quitar los comentarios al código (#) y luego salvar el archivo.
+startup mount; 
+ALTER DATABASE ARCHIVELOG; 
+Alter Database Open;
+Alter system archive log start; 
+ALTER SESSION SET log_archive_start = true 
+ALTER SESSION SET log_archive_dest=%Oracle_home%/database/%Oracle_sid%/Archive 
+ALTER SESSION SET log_archive_format=´´%XE%T%TS%S.ARC´´ 
+#v$archived_log
+ 
+ 
+ 
+ ast 25 - 30 MINUTOS
+ PORQUE ES IMPORTANTE EL TIEMPO DE SALTO

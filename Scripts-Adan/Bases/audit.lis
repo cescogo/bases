@@ -1,0 +1,70 @@
+audit_sys_operations                                                                                                                                                                                    
+TRUE                                                                                                                                                                                                    
+                                                                                                                                                                                                        
+audit_file_dest                                                                                                                                                                                         
+C:\ORACLEXE\APP\ORACLE\ADMIN\XE\ADUMP                                                                                                                                                                   
+                                                                                                                                                                                                        
+audit_trail                                                                                                                                                                                             
+DB, EXTENDED                                                                                                                                                                                            
+                                                                                                                                                                                                        
+ADAN                                                          CREATE ANY TABLE                         BY ACCESS  BY ACCESS                                                                             
+ADAN                                                          DROP ANY TABLE                           BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER ANY CLUSTER                        BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER ANY INDEX                          BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER ANY INDEXTYPE                      BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER ANY LIBRARY                        BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER ANY PROCEDURE                      BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER ANY SEQUENCE                       BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER ANY TABLE                          BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER ANY TRIGGER                        BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER DATABASE                           BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER PROFILE                            BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER SYSTEM                             BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER TABLESPACE                         BY ACCESS  BY ACCESS                                                                             
+                                                              ALTER USER                               BY ACCESS  BY ACCESS                                                                             
+                                                              AUDIT SYSTEM                             BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE ANY CLUSTER                       BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE ANY INDEX                         BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE ANY INDEXTYPE                     BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE ANY JOB                           BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE ANY LIBRARY                       BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE ANY PROCEDURE                     BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE ANY SEQUENCE                      BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE ANY TABLE                         BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE ANY TRIGGER                       BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE CLUSTER                           BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE EXTERNAL JOB                      BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE INDEXTYPE                         BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE LIBRARY                           BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE PROCEDURE                         BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE PUBLIC DATABASE LINK              BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE SEQUENCE                          BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE SESSION                           BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE TABLE                             BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE TABLESPACE                        BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE TRIGGER                           BY ACCESS  BY ACCESS                                                                             
+                                                              CREATE USER                              BY ACCESS  BY ACCESS                                                                             
+                                                              DATABASE LINK                            BY ACCESS  BY ACCESS                                                                             
+                                                              DROP ANY CLUSTER                         BY ACCESS  BY ACCESS                                                                             
+                                                              DROP ANY INDEX                           BY ACCESS  BY ACCESS                                                                             
+                                                              DROP ANY INDEXTYPE                       BY ACCESS  BY ACCESS                                                                             
+                                                              DROP ANY LIBRARY                         BY ACCESS  BY ACCESS                                                                             
+                                                              DROP ANY PROCEDURE                       BY ACCESS  BY ACCESS                                                                             
+                                                              DROP ANY SEQUENCE                        BY ACCESS  BY ACCESS                                                                             
+                                                              DROP ANY TABLE                           BY ACCESS  BY ACCESS                                                                             
+                                                              DROP ANY TRIGGER                         BY ACCESS  BY ACCESS                                                                             
+                                                              DROP PROFILE                             BY ACCESS  BY ACCESS                                                                             
+                                                              DROP TABLESPACE                          BY ACCESS  BY ACCESS                                                                             
+                                                              DROP USER                                BY ACCESS  BY ACCESS                                                                             
+                                                              EXECUTE ANY INDEXTYPE                    BY SESSION BY SESSION                                                                            
+                                                              EXECUTE ANY LIBRARY                      BY SESSION BY SESSION                                                                            
+                                                              EXECUTE ANY PROCEDURE                    BY SESSION BY SESSION                                                                            
+                                                              EXEMPT ACCESS POLICY                     BY ACCESS  BY ACCESS                                                                             
+                                                              GRANT ANY OBJECT PRIVILEGE               BY ACCESS  BY ACCESS                                                                             
+                                                              GRANT ANY PRIVILEGE                      BY ACCESS  BY ACCESS                                                                             
+                                                              GRANT ANY ROLE                           BY ACCESS  BY ACCESS                                                                             
+                                                              PROFILE                                  BY ACCESS  BY ACCESS                                                                             
+                                                              PUBLIC SYNONYM                           BY ACCESS  BY ACCESS                                                                             
+                                                              ROLE                                     BY ACCESS  BY ACCESS                                                                             
+                                                              SYSTEM AUDIT                             BY ACCESS  BY ACCESS                                                                             
+                                                              SYSTEM GRANT                             BY ACCESS  BY ACCESS                                                                             
