@@ -14,7 +14,5 @@ COLUMN sql_text FORMAT A50
 SELECT username,obj_name,action_name, sql_text FROM   dba_audit_trail ORDER BY timestamp;
 --AUDIT CREATE ANY TABLE, DROP ANY TABLE BY username;
 --AUDIT INSERT , UPDATE , DELETE  ON scott.emp BY ACCESS;
-AUDIT CREATE ANY TABLE, DROP ANY TABLE BY username;
-AUDIT INSERT , UPDATE , DELETE , Select ON T1 BY ACCESS;
 select * from all_users;
 archive log list;
