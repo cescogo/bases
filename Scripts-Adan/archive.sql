@@ -10,7 +10,7 @@ startup nomount;
 alter database mount;
 ALTER DATABASE ARCHIVELOG; 
 Alter Database Open;
-Alter system archive log start; 
+Alter system archive log start;
 ALTER SESSION SET log_archive_start = true ;
 ALTER SESSION SET log_archive_dest=%Oracle_home%/database/%Oracle_sid%/Archive ;
 ALTER SESSION SET log_archive_format=´´%XE%T%TS%S.ARC´´ ;
