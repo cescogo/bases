@@ -22,14 +22,14 @@ connect target /
 
 backup database tag='res10282017-1';
 backup current controlfile tag='res10282017-1c';
-
-restore tablespace users;
+--Esto para restaurar...
+--restore tablespace users;
 --Regresa a sql
 alter database open;
 select group#, sequence#, status from v$log;
 
 insert into t1(a,b,c) values (1,1,1);
-
+commit;
 alter system switch logfile; 
 select name, FIRST_CHANGE#, SEQUENCE# from v$archived_log;
 
@@ -39,11 +39,17 @@ alter system switch logfile;
 select name, FIRST_CHANGE#, SEQUENCE# from v$archived_log;
 
 insert into t1(a,b,c) values (2,2,2);
-
+commit;
 select current_scn from v$database;
 alter system switch logfile;
 select name, FIRST_CHANGE#, SEQUENCE# from v$archived_log;
 
+
+insert into t1(a,b,c) values (3,3,3);
+commit;
+select current_scn from v$database;
+alter system switch logfile;
+select name, FIRST_CHANGE#, SEQUENCE# from v$archived_log;
 --Aqui viene lo chungo volarse la db.
 --aqui es donde se elimina
 --Esto para ver los tb
@@ -55,7 +61,7 @@ startup;
 
 --Vamos al rman
 rman target /
-restore controlfile from 'C:\oraclexe\app\oracle\fast_recovery_area\XE\BACKUPSET\2017_10_19\O1_MF_NCSN0_L01_DYKVC2G9_.BKP';
+restore controlfile from 'C:\oraclexe\app\oracle\fast_recovery_area\XE\BACKUPSET\2017_10_29\O1_MF_NCNNF_RES10282017_1C_DZCWYBN8_.BKP';
 
 --en sql
 alter database mount;
